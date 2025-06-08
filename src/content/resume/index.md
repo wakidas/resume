@@ -203,6 +203,6 @@ Web エンジニアキャリアのスタート。親会社のリクルートの�
 - [【VSCode】ES6記法スニペットのEmmet展開方法まとめ](https://qiita.com/kiwatchi1991/items/75f337628b3cbd9a4e32)
 
 ## パーソナル
-- <a href="/resume/strengthsfinder.pdf" target="_blank" rel="noopener noreferrer">ストレングスファインダー</a>
+- <a href="https://wakidas.github.io/resume/strengthsfinder.pdf" target="_blank" rel="noopener noreferrer">ストレングスファインダー</a>
 - <a href="https://jobgram.jp/m/9f550899-d795-48c9-beb6-2ddfa95a79a2/result" target="_blank" rel="noopener noreferrer">ジョブグラム</a>
 - 趣味：読書、料理、DYI、電子工作、ギター、ファッション
