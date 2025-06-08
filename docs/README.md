@@ -4,13 +4,12 @@
 
 |key|value|
 |---|---|
-|氏名||
-|生年月日||
-|Twitter||
-|Qiita||
-|note||
-|Zenn||
-|SpeakerDeck||
+|氏名|脇田 慎平|
+|生年月日|1991年3月9日|
+|X|https://x.com/shimpeee_|
+|note|https://note.com/kiwatchi1991|
+|はてなブログ|https://wakidas.hatenablog.com/|
+|SpeakerDeck|https://speakerdeck.com/shimpeee_|
 
 ---
 
