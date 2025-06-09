@@ -12,10 +12,10 @@ publishDate: 2024-01-01
 |---|---|
 |氏名|脇田 慎平|
 |生年月日|1991年3月9日|
-|X|[https://x.com/shimpeee_](https://x.com/shimpeee_)|
-|note|https://note.com/kiwatchi1991|
-|はてなブログ|https://wakidas.hatenablog.com/|
-|SpeakerDeck|[https://speakerdeck.com/shimpeee_](https://speakerdeck.com/shimpeee_)|
+|X|<a href="https://x.com/shimpeee_" target="_blank" rel="noopener noreferrer">https://x.com/shimpeee_</a>|
+|note|<a href="https://note.com/kiwatchi1991" target="_blank" rel="noopener noreferrer">https://note.com/kiwatchi1991</a>|
+|はてなブログ|<a href="https://wakidas.hatenablog.com/" target="_blank" rel="noopener noreferrer">https://wakidas.hatenablog.com/</a>|
+|SpeakerDeck|<a href="https://speakerdeck.com/shimpeee_" target="_blank" rel="noopener noreferrer">https://speakerdeck.com/shimpeee_</a>|
 
 ---
 
