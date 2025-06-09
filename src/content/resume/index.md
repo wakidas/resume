@@ -12,10 +12,10 @@ publishDate: 2024-01-01
 |---|---|
 |氏名|脇田 慎平|
 |生年月日|1991年3月9日|
-|X|https://x.com/shimpeee_|
+|X|[https://x.com/shimpeee_](https://x.com/shimpeee_)|
 |note|https://note.com/kiwatchi1991|
 |はてなブログ|https://wakidas.hatenablog.com/|
-|SpeakerDeck|https://speakerdeck.com/shimpeee_|
+|SpeakerDeck|[https://speakerdeck.com/shimpeee_](https://speakerdeck.com/shimpeee_)|
 
 ---
 
@@ -195,7 +195,7 @@ Web エンジニアキャリアのスタート。親会社のリクルートの�
 - 読書録を中心に、年間約 50 記事アウトプット（https://blog.kiwatchi.com/）
 
 ### X
-- 読書アウトプットが多め（https://twitter.com/shimpeee_
+- 読書アウトプットが多め（[https://twitter.com/shimpeee_](https://twitter.com/shimpeee_)）
 
 ### Qiita
 - [【Laravel テスト】フォームリクエスト 複数項目バリデーションのテストコードを書いてみた](https://qiita.com/kiwatchi1991/items/fd0e9cfae0e1bdcf1121)
