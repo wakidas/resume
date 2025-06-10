@@ -1,0 +1,74 @@
+---
+export interface Props {
+  name: string;
+  period?: string;
+  description?: string;
+  projectScale?: string[];
+  technologies?: {
+    backend?: string;
+    frontend?: string;
+    infrastructure?: string;
+  };
+  projects?: string[];
+}
+
+const { name, period, description, projectScale, technologies, projects } = Astro.props;
+---
+
+<section class="company-section">
+  <h3>{name}</h3>
+  
+  {description && (
+    <p>{description}</p>
+  )}
+  
+  <ul>
+    {period && (
+      <li>
+        <strong>期間：</strong>
+        <ul>
+          <li>{period}</li>
+        </ul>
+      </li>
+    )}
+    
+    {projectScale && projectScale.length > 0 && (
+      <li>
+        <strong>プロジェクト規模：</strong>
+        <ul>
+          {projectScale.map(scale => (
+            <li>{scale}</li>
+          ))}
+        </ul>
+      </li>
+    )}
+    
+    {technologies && (
+      <li>
+        <strong>使用技術：</strong>
+        <ul>
+          {technologies.backend && (
+            <li><strong>バックエンド：</strong> {technologies.backend}</li>
+          )}
+          {technologies.frontend && (
+            <li><strong>フロントエンド：</strong> {technologies.frontend}</li>
+          )}
+          {technologies.infrastructure && (
+            <li><strong>インフラ：</strong> {technologies.infrastructure}</li>
+          )}
+        </ul>
+      </li>
+    )}
+    
+    {projects && projects.length > 0 && (
+      <li>
+        <strong>担当プロジェクト：</strong>
+        <ul>
+          {projects.map(project => (
+            <li set:html={project} />
+          ))}
+        </ul>
+      </li>
+    )}
+  </ul>
+</section>

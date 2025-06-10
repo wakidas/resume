@@ -1,0 +1,41 @@
+---
+import { getEntry } from 'astro:content';
+
+const content = await getEntry('resume', 'personal');
+const { Content } = await content.render();
+---
+
+<section class="personal-section">
+  <Content />
+</section>
+
+<style>
+  .personal-section :global(ul) {
+    @apply ml-5;
+    list-style-type: none;
+  }
+
+  .personal-section :global(ul li) {
+    @apply mb-1;
+    position: relative;
+  }
+
+  .personal-section :global(ul li:before) {
+    content: "・";
+    position: absolute;
+    left: -1.2em;
+    font-weight: bold;
+  }
+
+  .personal-section :global(a) {
+    @apply text-blue-600 no-underline;
+  }
+
+  .personal-section :global(a:hover) {
+    @apply underline;
+  }
+
+  .personal-section :global(p) {
+    @apply mb-4;
+  }
+</style>

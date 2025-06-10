@@ -1,0 +1,48 @@
+---
+export interface Props {
+  motivation: {
+    title: string;
+    sections: {
+      subtitle: string;
+      content: string[];
+    }[];
+  };
+  personal: {
+    links: {
+      title: string;
+      url: string;
+    }[];
+    hobbies: string;
+  };
+}
+
+const { motivation, personal } = Astro.props;
+---
+
+<section>
+  <h2>{motivation.title}</h2>
+  <p>「仕事を通じて人間的な成長を果たし、人生を充実させたい」をモットー</p>
+  
+  {motivation.sections.map(section => (
+    <div>
+      <h3>{section.subtitle}</h3>
+      {section.content.map(paragraph => (
+        <p>{paragraph}</p>
+      ))}
+    </div>
+  ))}
+</section>
+
+<section>
+  <h2>パーソナル</h2>
+  <ul>
+    {personal.links.map(link => (
+      <li>
+        <a href={link.url} target="_blank" rel="noopener noreferrer">
+          {link.title}
+        </a>
+      </li>
+    ))}
+    <li>{personal.hobbies}</li>
+  </ul>
+</section>

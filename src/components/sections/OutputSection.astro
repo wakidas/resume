@@ -1,0 +1,57 @@
+---
+import { getEntry } from 'astro:content';
+
+const content = await getEntry('resume', 'output');
+const { Content } = await content.render();
+---
+
+<section class="output-section">
+  <Content />
+</section>
+
+<style>
+  .output-section :global(h3) {
+    @apply text-lg font-medium text-blue-600 mt-6 mb-3;
+  }
+
+  .output-section :global(ul) {
+    @apply ml-5;
+    list-style-type: none;
+  }
+
+  .output-section :global(ul li) {
+    @apply mb-1;
+    position: relative;
+  }
+
+  .output-section :global(ul li:before) {
+    content: "・";
+    position: absolute;
+    left: -1.2em;
+    font-weight: bold;
+  }
+
+  .output-section :global(ol) {
+    @apply ml-5 list-decimal;
+  }
+
+  .output-section :global(ol li) {
+    @apply mb-1;
+  }
+
+  .output-section :global(a) {
+    @apply text-blue-600 no-underline;
+  }
+
+  .output-section :global(a:hover) {
+    @apply underline;
+  }
+
+  .output-section :global(code) {
+    @apply font-sans;
+  }
+
+  .output-section :global(p) {
+    @apply mb-4;
+  }
+</style>

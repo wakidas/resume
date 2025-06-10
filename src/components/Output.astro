@@ -1,0 +1,77 @@
+---
+export interface Props {
+  techBlogs: {
+    company: string;
+    posts: {
+      title: string;
+      url: string;
+      bookmarks?: number;
+    }[];
+  }[];
+  personalBlog: {
+    description: string;
+    url: string;
+  };
+  socialMedia: {
+    platform: string;
+    description: string;
+    url: string;
+  }[];
+  qiitaPosts: {
+    title: string;
+    url: string;
+  }[];
+}
+
+const { techBlogs, personalBlog, socialMedia, qiitaPosts } = Astro.props;
+---
+
+<section>
+  <h2>アウトプット</h2>
+
+  <h3>テックブログ（会社）</h3>
+  <ul>
+    {techBlogs.map(blog => (
+      <li>
+        {blog.company}
+        <ul>
+          {blog.posts.map(post => (
+            <li>
+              <a href={post.url} target="_blank" rel="noopener noreferrer">
+                {post.title}
+              </a>
+              {post.bookmarks && ` (${post.bookmarks} ブクマ)`}
+            </li>
+          ))}
+        </ul>
+      </li>
+    ))}
+  </ul>
+
+  <h3>個人ブログ</h3>
+  <ul>
+    <li>
+      {personalBlog.description}（<a href={personalBlog.url} target="_blank" rel="noopener noreferrer">{personalBlog.url}</a>）
+    </li>
+  </ul>
+
+  {socialMedia.map(social => (
+    <h3>{social.platform}</h3>
+    <ul>
+      <li>
+        {social.description}（<a href={social.url} target="_blank" rel="noopener noreferrer">{social.url}</a>）
+      </li>
+    </ul>
+  ))}
+
+  <h3>Qiita</h3>
+  <ul>
+    {qiitaPosts.map(post => (
+      <li>
+        <a href={post.url} target="_blank" rel="noopener noreferrer">
+          {post.title}
+        </a>
+      </li>
+    ))}
+  </ul>
+</section>

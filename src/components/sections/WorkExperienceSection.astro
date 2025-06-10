@@ -1,0 +1,49 @@
+---
+import { getEntry } from 'astro:content';
+
+const content = await getEntry('resume', 'work-experience');
+const { Content } = await content.render();
+---
+
+<section class="work-experience-section">
+  <Content />
+</section>
+
+<style>
+  .work-experience-section :global(h3) {
+    @apply text-xl font-medium text-blue-600 mt-6 mb-3;
+  }
+
+  .work-experience-section :global(ul) {
+    @apply ml-5;
+    list-style-type: none;
+  }
+
+  .work-experience-section :global(ul li) {
+    @apply mb-1;
+    position: relative;
+  }
+
+  .work-experience-section :global(ul li:before) {
+    content: "・";
+    position: absolute;
+    left: -1.2em;
+    font-weight: bold;
+  }
+
+  .work-experience-section :global(ol) {
+    @apply ml-5 list-decimal;
+  }
+
+  .work-experience-section :global(ol li) {
+    @apply mb-1;
+  }
+
+  .work-experience-section :global(strong) {
+    @apply text-gray-800 font-semibold;
+  }
+
+  .work-experience-section :global(p) {
+    @apply mb-4;
+  }
+</style>
