@@ -47,13 +47,15 @@ import '../styles/global.css';
       }
 
       :global(table td:first-child) {
-        @apply bg-gray-50 font-semibold;
-        width: 140px;
-        min-width: 140px;
+        @apply bg-gray-50 font-semibold w-32;
       }
 
-      :global(table td:last-child) {
-        width: calc(100% - 140px);
+      :global(table th) {
+        @apply p-3 border border-gray-300 bg-gray-100 font-semibold text-center;
+      }
+
+      :global(table th:first-child) {
+        @apply w-32;
       }
 
       :global(a) {
@@ -120,12 +122,11 @@ import '../styles/global.css';
         }
         
         :global(table td:first-child) {
-          width: 100px;
-          min-width: 100px;
+          @apply w-20 text-sm;
         }
 
-        :global(table td:last-child) {
-          width: calc(100% - 100px);
+        :global(table th:first-child) {
+          @apply w-20 text-sm;
         }
       }
     </style>
