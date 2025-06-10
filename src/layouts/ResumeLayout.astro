@@ -58,6 +58,11 @@ import '../styles/global.css';
         @apply w-32;
       }
 
+      /* Hide empty table headers in basic info section */
+      :global(table thead) {
+        display: none;
+      }
+
       :global(a) {
         @apply text-blue-600 no-underline;
       }

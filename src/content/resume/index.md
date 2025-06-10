@@ -8,6 +8,8 @@ publishDate: 2024-01-01
 
 ## 基本情報
 
+| | |
+|---|---|
 |氏名|脇田 慎平|
 |生年月日|1991年3月9日|
 |X|<a href="https://x.com/shimpeee_" target="_blank" rel="noopener noreferrer">`https://x.com/shimpeee_`</a>|
