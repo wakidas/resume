@@ -1,0 +1,24 @@
+---
+import { getEntry } from 'astro:content';
+
+const content = await getEntry('resume', 'self-pr');
+const { Content } = await content.render();
+---
+
+<section class="self-pr-section">
+  <Content />
+</section>
+
+<style>
+  .self-pr-section :global(h3) {
+    @apply text-lg font-medium text-blue-600 mt-6 mb-3;
+  }
+
+  .self-pr-section :global(p) {
+    @apply mb-4;
+  }
+
+  .self-pr-section :global(strong) {
+    @apply text-gray-800 font-semibold;
+  }
+</style>

@@ -1,0 +1,53 @@
+---
+import { getEntry } from 'astro:content';
+
+const content = await getEntry('resume', 'basic-info');
+const { Content } = await content.render();
+---
+
+<section class="basic-info-section">
+  <Content />
+</section>
+
+<style>
+  .basic-info-section :global(table) {
+    @apply w-full border-collapse my-4;
+    table-layout: fixed;
+  }
+
+  .basic-info-section :global(table td) {
+    @apply p-3 border border-gray-300 align-top;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .basic-info-section :global(table td:first-child) {
+    @apply bg-gray-50 font-semibold w-32;
+  }
+
+  .basic-info-section :global(table th) {
+    @apply p-3 border border-gray-300 bg-gray-100 font-semibold text-center;
+  }
+
+  .basic-info-section :global(table th:first-child) {
+    @apply w-32;
+  }
+
+  .basic-info-section :global(table thead) {
+    display: none;
+  }
+
+  @media (max-width: 640px) {
+    .basic-info-section :global(table td) {
+      @apply p-2 text-sm;
+    }
+    
+    .basic-info-section :global(table td:first-child) {
+      @apply w-20 text-sm;
+    }
+
+    .basic-info-section :global(table th:first-child) {
+      @apply w-20 text-sm;
+    }
+  }
+</style>

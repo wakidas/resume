@@ -1,0 +1,41 @@
+---
+import { getEntry } from 'astro:content';
+
+const content = await getEntry('resume', 'motivation');
+const { Content } = await content.render();
+---
+
+<section class="motivation-section">
+  <Content />
+</section>
+
+<style>
+  .motivation-section :global(h3) {
+    @apply text-lg font-medium text-blue-600 mt-4 mb-2;
+  }
+
+  .motivation-section :global(ul) {
+    @apply ml-5;
+    list-style-type: none;
+  }
+
+  .motivation-section :global(ul li) {
+    @apply mb-1;
+    position: relative;
+  }
+
+  .motivation-section :global(ul li:before) {
+    content: "・";
+    position: absolute;
+    left: -1.2em;
+    font-weight: bold;
+  }
+
+  .motivation-section :global(p) {
+    @apply mb-4;
+  }
+
+  .motivation-section :global(strong) {
+    @apply text-gray-800 font-semibold;
+  }
+</style>

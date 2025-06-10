@@ -1,11 +1,30 @@
 ---
 import { getEntry } from 'astro:content';
 import ResumeLayout from '../layouts/ResumeLayout.astro';
+import BasicInfoSection from '../components/sections/BasicInfoSection.astro';
+import WorkExperienceSection from '../components/sections/WorkExperienceSection.astro';
+import MotivationSection from '../components/sections/MotivationSection.astro';
+import SelfPRSection from '../components/sections/SelfPRSection.astro';
+import OutputSection from '../components/sections/OutputSection.astro';
+import PersonalSection from '../components/sections/PersonalSection.astro';
 
 const resume = await getEntry('resume', 'index');
-const { Content } = await resume.render();
 ---
 
 <ResumeLayout title={resume.data.title} description={resume.data.description}>
-  <Content />
+  <h1>職務経歴書</h1>
+  
+  <BasicInfoSection />
+  
+  <hr />
+  
+  <WorkExperienceSection />
+  
+  <MotivationSection />
+  
+  <SelfPRSection />
+  
+  <OutputSection />
+  
+  <PersonalSection />
 </ResumeLayout>
