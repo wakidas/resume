@@ -37,14 +37,23 @@ import '../styles/global.css';
 
       :global(table) {
         @apply w-full border-collapse my-4;
+        table-layout: fixed;
       }
 
       :global(table td) {
-        @apply p-2 border border-gray-300;
+        @apply p-3 border border-gray-300 align-top;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
       }
 
       :global(table td:first-child) {
-        @apply bg-gray-50 font-semibold w-32;
+        @apply bg-gray-50 font-semibold;
+        width: 140px;
+        min-width: 140px;
+      }
+
+      :global(table td:last-child) {
+        width: calc(100% - 140px);
       }
 
       :global(a) {
@@ -106,8 +115,17 @@ import '../styles/global.css';
           @apply p-5;
         }
         
+        :global(table td) {
+          @apply p-2 text-sm;
+        }
+        
         :global(table td:first-child) {
-          @apply w-20 text-sm;
+          width: 100px;
+          min-width: 100px;
+        }
+
+        :global(table td:last-child) {
+          width: calc(100% - 100px);
         }
       }
     </style>
