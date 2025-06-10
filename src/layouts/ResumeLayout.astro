@@ -55,11 +55,28 @@ import '../styles/global.css';
         @apply underline;
       }
 
-      :global(ul), :global(ol) {
+      :global(ul) {
         @apply ml-5;
+        list-style-type: none;
       }
 
-      :global(li) {
+      :global(ul li) {
+        @apply mb-1;
+        position: relative;
+      }
+
+      :global(ul li:before) {
+        content: "・";
+        position: absolute;
+        left: -1.2em;
+        font-weight: bold;
+      }
+
+      :global(ol) {
+        @apply ml-5 list-decimal;
+      }
+
+      :global(ol li) {
         @apply mb-1;
       }
 
