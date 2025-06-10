@@ -5,6 +5,7 @@ export interface Props {
 }
 
 const { title, description } = Astro.props;
+import '../styles/global.css';
 ---
 
 <html lang="ja">
@@ -16,109 +17,80 @@ const { title, description } = Astro.props;
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
   </head>
-  <body>
-    <main>
+  <body class="bg-gray-50 font-sans text-gray-800 leading-relaxed max-w-4xl mx-auto p-5">
+    <main class="bg-white p-10 shadow-lg rounded-lg my-5">
       <slot />
     </main>
 
     <style>
-      body {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-        line-height: 1.6;
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 20px;
-        color: #333;
-        background-color: #f8f9fa;
-      }
-
-      main {
-        background: white;
-        padding: 40px;
-        box-shadow: 0 0 20px rgba(0,0,0,0.1);
-        border-radius: 10px;
-        margin: 20px 0;
-      }
-
       :global(h1) {
-        color: #2c3e50;
-        border-bottom: 3px solid #3498db;
-        padding-bottom: 10px;
-        margin-top: 0;
+        @apply text-3xl font-bold text-gray-800 border-b-4 border-blue-500 pb-3 mt-0 mb-6;
       }
 
       :global(h2) {
-        color: #34495e;
-        margin-top: 30px;
-        border-bottom: 1px solid #ddd;
-        padding-bottom: 5px;
+        @apply text-2xl font-semibold text-gray-700 mt-8 mb-4 border-b border-gray-300 pb-2;
       }
 
       :global(h3) {
-        color: #2980b9;
-        margin-top: 25px;
+        @apply text-xl font-medium text-blue-600 mt-6 mb-3;
       }
 
       :global(table) {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 15px 0;
+        @apply w-full border-collapse my-4;
       }
 
       :global(table td) {
-        padding: 8px;
-        border: 1px solid #ddd;
+        @apply p-2 border border-gray-300;
       }
 
       :global(table td:first-child) {
-        background-color: #f8f9fa;
-        font-weight: bold;
-        width: 120px;
+        @apply bg-gray-50 font-semibold w-32;
       }
 
       :global(a) {
-        color: #3498db;
-        text-decoration: none;
+        @apply text-blue-600 no-underline;
       }
 
       :global(a:hover) {
-        text-decoration: underline;
+        @apply underline;
       }
 
       :global(ul), :global(ol) {
-        margin-left: 20px;
+        @apply ml-5;
       }
 
       :global(li) {
-        margin-bottom: 5px;
+        @apply mb-1;
       }
 
       :global(hr) {
-        margin: 30px 0;
-        border: none;
-        border-top: 2px solid #ecf0f1;
+        @apply my-8 border-0 border-t-2 border-gray-200;
       }
 
       :global(strong) {
-        color: #2c3e50;
+        @apply text-gray-800 font-semibold;
       }
 
       :global(p) {
-        margin-bottom: 15px;
+        @apply mb-4;
       }
 
-      @media (max-width: 600px) {
+      /* Fix monospace font for code spans */
+      :global(code) {
+        @apply font-sans;
+      }
+
+      @media (max-width: 640px) {
         body {
-          padding: 10px;
+          @apply p-3;
         }
         
         main {
-          padding: 20px;
+          @apply p-5;
         }
         
         :global(table td:first-child) {
-          width: 80px;
-          font-size: 14px;
+          @apply w-20 text-sm;
         }
       }
     </style>
