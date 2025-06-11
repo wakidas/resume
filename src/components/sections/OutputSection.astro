@@ -10,9 +10,7 @@ const { Content } = await content.render();
 </section>
 
 <style>
-  .output-section :global(h3) {
-    @apply text-lg font-medium text-green-600 mt-6 mb-3;
-  }
+  /* h3はグローバルスタイルを使用 */
 
   .output-section :global(ul) {
     @apply ml-5;
@@ -40,11 +38,7 @@ const { Content } = await content.render();
   }
 
   .output-section :global(a) {
-    @apply text-green-600 no-underline;
-  }
-
-  .output-section :global(a:hover) {
-    @apply underline;
+    @apply text-green-500 no-underline hover:underline;
   }
 
   .output-section :global(code) {
