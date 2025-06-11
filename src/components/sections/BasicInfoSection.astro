@@ -6,23 +6,31 @@ const { Content } = await content.render();
 ---
 
 <section class="basic-info-section">
+  <div class="flex items-center gap-3 mb-6">
+    <div class="w-8 h-8 bg-gradient-to-r from-green-500 to-green-600 rounded-lg flex items-center justify-center">
+      <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+      </svg>
+    </div>
+    <h2 class="!m-0 !p-0 !bg-none !border-none !text-2xl">基本情報</h2>
+  </div>
   <Content />
 </section>
 
 <style>
   .basic-info-section :global(table) {
-    @apply w-full border-collapse my-4;
+    @apply w-full border-collapse my-4 overflow-hidden rounded-lg shadow-sm;
     table-layout: fixed;
   }
 
   .basic-info-section :global(table td) {
-    @apply p-3 border border-gray-300 align-top;
+    @apply p-4 border-b border-gray-600 align-top text-gray-200;
     word-wrap: break-word;
     overflow-wrap: break-word;
   }
 
   .basic-info-section :global(table td:first-child) {
-    @apply bg-gray-50 font-semibold w-32;
+    @apply bg-gradient-to-r from-green-600/20 to-green-500/10 font-semibold w-32 text-gray-200;
   }
 
   .basic-info-section :global(table th) {
