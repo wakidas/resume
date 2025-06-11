@@ -17,36 +17,106 @@ import '../styles/global.css';
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
   </head>
-  <body class="bg-gray-50 font-sans text-gray-800 leading-relaxed max-w-4xl mx-auto p-5">
-    <main class="bg-white p-10 shadow-lg rounded-lg my-5">
-      <slot />
-    </main>
+  <body class="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 font-sans text-gray-100 leading-relaxed min-h-screen relative overflow-x-hidden">
+    <!-- 背景の装飾要素 -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute -top-40 -right-40 w-80 h-80 bg-green-500/10 rounded-full blur-3xl"></div>
+      <div class="absolute top-1/3 -left-40 w-96 h-96 bg-green-400/5 rounded-full blur-3xl"></div>
+      <div class="absolute -bottom-40 right-1/3 w-80 h-80 bg-green-600/8 rounded-full blur-3xl"></div>
+    </div>
+    
+    <div class="max-w-4xl mx-auto p-5 relative z-10">
+      <main class="bg-gray-800/70 backdrop-blur-xl p-10 shadow-[0_8px_32px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.05),inset_0_1px_0_rgba(255,255,255,0.1)] rounded-3xl my-8 border border-gray-700/30 relative">
+        <!-- 内側の光効果 -->
+        <div class="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent rounded-3xl pointer-events-none"></div>
+        <div class="relative z-10">
+          <slot />
+        </div>
+      </main>
+    </div>
 
     <style>
       :global(h1) {
-        @apply text-3xl font-bold text-gray-800 border-b-4 border-blue-500 pb-3 mt-0 mb-6;
+        @apply text-4xl font-bold bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-transparent mb-8 text-center;
       }
 
       :global(h2) {
-        @apply text-2xl font-semibold text-gray-700 mt-8 mb-4 border-b border-gray-300 pb-2;
+        @apply text-2xl font-bold text-gray-100 mt-10 mb-6 px-4 py-3 bg-gradient-to-r from-green-600/20 to-green-500/10 rounded-lg border-l-4 border-green-600;
       }
 
       :global(h3) {
-        @apply text-xl font-medium text-blue-600 mt-6 mb-3;
+        @apply text-xl font-semibold text-green-400 mt-6 mb-4 flex items-center gap-2;
       }
 
       /* Common styles for all sections */
       :global(hr) {
-        @apply my-8 border-0 border-t-2 border-gray-200;
+        @apply my-12 border-0 h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent;
+      }
+
+      /* Section styling */
+      :global(section) {
+        @apply bg-gray-700/30 backdrop-blur-md rounded-2xl p-8 mb-8 
+               shadow-[0_4px_20px_rgba(0,0,0,0.3),0_0_0_1px_rgba(255,255,255,0.1),inset_0_1px_0_rgba(255,255,255,0.15)] 
+               border border-gray-600/30 
+               hover:shadow-[0_8px_40px_rgba(0,0,0,0.4),0_0_0_1px_rgba(34,197,94,0.2),inset_0_1px_0_rgba(255,255,255,0.2)] 
+               hover:bg-gray-700/40 hover:border-green-500/20
+               transition-all duration-500 ease-out
+               relative overflow-hidden;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* セクションの内側光効果 */
+      :global(section)::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        pointer-events: none;
+      }
+
+      :global(section)::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+                                  rgba(34, 197, 94, 0.05), transparent 40%);
+        border-radius: inherit;
+        opacity: 0;
+        transition: opacity 500ms;
+        pointer-events: none;
+      }
+
+      :global(section:hover)::after {
+        opacity: 1;
       }
 
       @media (max-width: 640px) {
-        body {
+        .max-w-4xl {
           @apply p-3;
         }
         
         main {
-          @apply p-5;
+          @apply p-6;
+        }
+
+        :global(h1) {
+          @apply text-3xl;
+        }
+
+        :global(section) {
+          @apply p-4 mb-4;
+        }
+
+        :global(.flex) {
+          @apply flex-col gap-2;
+        }
+
+        :global(.w-8) {
+          @apply w-6 h-6;
         }
         
         :global(table td) {
