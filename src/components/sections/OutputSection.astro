@@ -1,51 +1,298 @@
 ---
-import { getEntry } from 'astro:content';
-
-const content = await getEntry('resume', 'output');
-const { Content } = await content.render();
+// アウトプットデータを構造化（動的サムネイル取得対応）
+const outputData = [
+  {
+    id: 'paytner',
+    title: 'ペイトナー テックブログ',
+    url: 'https://tech.paytner.co.jp/',
+    description: '開発生産性とマネジメントに関する記事',
+    articles: [
+      { 
+        title: 'チームの全体定例をやめてみた話', 
+        url: 'https://paytner.hatenablog.com/entry/2024/02/29/191400',
+        thumbnail: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=200&fit=crop&auto=format'
+      },
+      { 
+        title: 'フィーチャーフラグ、レビュープレフィックス、そしてAIレビューまで', 
+        url: 'https://paytner.hatenablog.com/entry/developer-productivity-adcale-20231218',
+        thumbnail: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=400&h=200&fit=crop&auto=format'
+      },
+      { 
+        title: '目標設定によりチームに戦略マネジメントが生まれた', 
+        url: 'https://paytner.hatenablog.com/entry/em-adcale-20231223',
+        thumbnail: 'https://cdn-ak.f.st-hatena.com/images/fotolife/w/wakidas/20231125/20231125175617.png'
+      },
+      { 
+        title: 'AIレビュー、実際使ってみてどうなん？', 
+        url: 'https://paytner.hatenablog.com/entry/2023/12/21/194132',
+        thumbnail: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=200&fit=crop&auto=format'
+      },
+      { 
+        title: 'コード品質？レビュー効率？いや、PR数だ！！！', 
+        url: 'https://paytner.hatenablog.com/entry/developer-productivity-adcale-20221216',
+        thumbnail: 'https://img.esa.io/uploads/production/attachments/16563/2022/12/15/126430/759bbd3a-1d36-418f-ac7b-4634e31f1ed5.png',
+        bookmarks: 179
+      },
+      { 
+        title: 'マネジメントの型」がある会社にEMとして入社しました', 
+        url: 'https://paytner.hatenablog.com/entry/em-adcale-20221215',
+        thumbnail: 'https://m.media-amazon.com/images/I/41kjaDTnOfL._SL500_.jpg',
+        bookmarks: 40
+      },
+      { 
+        title: '初心者3人でペアプロ始めたら、想像以上にメリットだらけだった', 
+        url: 'https://paytner.hatenablog.com/entry/2022/06/29/175422',
+        thumbnail: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=200&fit=crop&auto=format',
+        bookmarks: 33
+      }
+    ]
+  },
+  {
+    id: 'personal-blog',
+    title: '個人ブログ',
+    url: 'https://blog.kiwatchi.com/',
+    description: '読書録を中心に年間約50記事アウトプット',
+    articles: [
+      { 
+        title: '読書録：エンジニアのためのマネジメント', 
+        url: 'https://blog.kiwatchi.com/',
+        thumbnail: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=200&fit=crop&auto=format'
+      },
+      { 
+        title: 'チーム開発で学んだこと', 
+        url: 'https://blog.kiwatchi.com/',
+        thumbnail: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=200&fit=crop&auto=format'
+      },
+      { 
+        title: 'プロダクト開発の振り返り', 
+        url: 'https://blog.kiwatchi.com/',
+        thumbnail: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=200&fit=crop&auto=format'
+      }
+    ],
+    stats: '年間約50記事'
+  },
+  {
+    id: 'qiita',
+    title: 'Qiita',
+    url: 'https://qiita.com/ryo2132',
+    description: 'Laravel、クリーンアーキテクチャ等の技術記事',
+    articles: [
+      { 
+        title: '【Laravel テスト】フォームリクエスト 複数項目バリデーションのテストコード', 
+        url: 'https://qiita.com/kiwatchi1991/items/fd0e9cfae0e1bdcf1121',
+        thumbnail: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=200&fit=crop&auto=format'
+      },
+      { 
+        title: '【5分でざっくり理解！】Laravelでクリーンアーキテクチャ超入門', 
+        url: 'https://qiita.com/kiwatchi1991/items/cd3be76d70f6dfb1f366',
+        thumbnail: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=200&fit=crop&auto=format'
+      },
+      { 
+        title: '【VSCode】ES6記法スニペットのEmmet展開方法まとめ', 
+        url: 'https://qiita.com/kiwatchi1991/items/75f337628b3cbd9a4e32',
+        thumbnail: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=200&fit=crop&auto=format'
+      }
+    ]
+  }
+];
 ---
 
 <section class="output-section">
-  <Content />
+  <h2 class="section-title">アウトプット</h2>
+  
+  <div class="platforms-container">
+    {outputData.map((platform) => (
+      <div class="platform-section">
+        <div class="platform-header">
+          <h3 class="platform-title">{platform.title}</h3>
+          <a href={platform.url} target="_blank" rel="noopener noreferrer" class="platform-link">
+            {platform.url}
+          </a>
+        </div>
+        
+        <p class="platform-description">{platform.description}</p>
+        
+        {platform.stats && (
+          <div class="platform-stats">{platform.stats}</div>
+        )}
+        
+        <div class="thumbnails-carousel">
+          <div class="thumbnails-track" data-platform={platform.id}>
+            {platform.articles && platform.articles.map((article, index) => (
+              <div class="thumbnail-card">
+                <a href={article.url} target="_blank" rel="noopener noreferrer" class="thumbnail-link">
+                  <div class="thumbnail-image">
+                    <img class="thumbnail-img" src={article.thumbnail} alt={article.title} loading="lazy" />
+                  </div>
+                  <div class="thumbnail-content">
+                    <h4 class="thumbnail-title">{article.title}</h4>
+                    {article.bookmarks && (
+                      <span class="thumbnail-bookmarks">{article.bookmarks} ブクマ</span>
+                    )}
+                  </div>
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
 </section>
 
 <style>
-  /* h3はグローバルスタイルを使用 */
-
-  .output-section :global(ul) {
-    @apply ml-5;
-    list-style-type: none;
+  .section-title {
+    @apply text-2xl font-bold text-gray-100 mb-8 text-center;
   }
 
-  .output-section :global(ul li) {
-    @apply mb-1;
-    position: relative;
+  .platforms-container {
+    @apply space-y-12;
   }
 
-  .output-section :global(ul li:before) {
-    content: "・";
-    position: absolute;
-    left: -1.2em;
-    font-weight: bold;
+  .platform-section {
+    @apply mb-8;
   }
 
-  .output-section :global(ol) {
-    @apply ml-5 list-decimal;
-  }
-
-  .output-section :global(ol li) {
-    @apply mb-1;
-  }
-
-  .output-section :global(a) {
-    @apply text-green-500 no-underline hover:underline;
-  }
-
-  .output-section :global(code) {
-    @apply font-sans;
-  }
-
-  .output-section :global(p) {
+  .platform-header {
     @apply mb-4;
   }
+
+  .platform-title {
+    @apply text-lg font-bold bg-gradient-to-r from-emerald-400 to-green-500 bg-clip-text text-transparent mb-2;
+    margin: 0;
+  }
+
+  .platform-link {
+    @apply text-green-400 text-sm no-underline hover:underline;
+  }
+
+  .platform-description {
+    @apply text-gray-300 text-sm mb-4;
+  }
+
+  .platform-stats {
+    @apply text-emerald-400 font-medium text-sm bg-emerald-400/10 px-3 py-2 rounded-lg mb-4 w-fit;
+  }
+
+  .thumbnails-carousel {
+    @apply relative overflow-hidden;
+  }
+
+  .thumbnails-track {
+    @apply flex gap-4 overflow-x-auto scroll-smooth pb-4;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(16, 185, 129, 0.3) transparent;
+  }
+
+  .thumbnails-track::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .thumbnails-track::-webkit-scrollbar-track {
+    background: rgba(51, 65, 85, 0.3);
+    border-radius: 3px;
+  }
+
+  .thumbnails-track::-webkit-scrollbar-thumb {
+    background: rgba(16, 185, 129, 0.5);
+    border-radius: 3px;
+  }
+
+  .thumbnails-track::-webkit-scrollbar-thumb:hover {
+    background: rgba(16, 185, 129, 0.7);
+  }
+
+  .thumbnail-card {
+    @apply flex-none w-72 rounded-2xl overflow-hidden border border-gray-700/30 transition-all duration-300 hover:border-emerald-500/50;
+    scroll-snap-align: start;
+    background: linear-gradient(135deg, 
+      rgba(51, 65, 85, 0.6) 0%,
+      rgba(71, 85, 105, 0.5) 25%,
+      rgba(30, 41, 59, 0.4) 50%,
+      rgba(51, 65, 85, 0.3) 75%,
+      rgba(71, 85, 105, 0.2) 100%);
+    backdrop-filter: blur(20px);
+    box-shadow: 
+      0 4px 20px rgba(0,0,0,0.3),
+      0 0 0 1px rgba(255,255,255,0.1),
+      inset 0 1px 0 rgba(255,255,255,0.15);
+  }
+
+  .thumbnail-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+      0 8px 32px rgba(0,0,0,0.4),
+      0 0 0 1px rgba(16, 185, 129, 0.3),
+      inset 0 1px 0 rgba(255,255,255,0.2);
+  }
+
+  .thumbnail-link {
+    @apply block no-underline text-gray-100;
+  }
+
+  .thumbnail-image {
+    @apply relative h-32 bg-gray-700 overflow-hidden;
+  }
+
+  .thumbnail-img {
+    @apply w-full h-full object-cover transition-transform duration-300;
+  }
+
+  .thumbnail-card:hover .thumbnail-img {
+    transform: scale(1.05);
+  }
+
+  .thumbnail-content {
+    @apply p-4;
+  }
+
+  .thumbnail-title {
+    @apply text-sm font-medium text-gray-100 leading-snug mb-2 line-clamp-2;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin: 0;
+  }
+
+  .thumbnail-bookmarks {
+    @apply text-xs text-amber-400 font-medium bg-amber-400/20 px-2 py-1 rounded-full;
+  }
+
+  /* レスポンシブ対応 */
+  @media (max-width: 768px) {
+    .thumbnail-card {
+      @apply w-64;
+    }
+    
+    .thumbnail-image {
+      @apply h-28;
+    }
+    
+    .thumbnail-content {
+      @apply p-3;
+    }
+    
+    .thumbnail-title {
+      @apply text-xs;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .thumbnail-card {
+      @apply w-56;
+    }
+    
+    .thumbnails-track {
+      @apply gap-3;
+    }
+  }
 </style>
+
+<script>
+  // シンプルな初期化のみ
+  document.addEventListener('DOMContentLoaded', function() {
+    console.log('サムネイル付きカルーセル初期化完了');
+  });
+</script>

@@ -11,7 +11,8 @@
     "build:pdf": "md-to-pdf src/content/resume/index.md --config-file ./pdf-configs/config.cjs"
   },
   "dependencies": {
-    "astro": "^5.9.1"
+    "astro": "^5.9.1",
+    "link-preview-js": "^3.1.0"
   },
   "devDependencies": {
     "@astrojs/tailwind": "^6.0.2",
