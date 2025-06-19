@@ -37,6 +37,17 @@ const { Content } = await content.render();
     display: none;
   }
 
+  .basic-info-section :global(table a) {
+    @apply text-green-400 text-sm no-underline hover:underline;
+  }
+
+  .basic-info-section :global(table code) {
+    @apply text-green-400 text-sm font-normal;
+    background: none;
+    padding: 0;
+    font-family: inherit;
+  }
+
   @media (max-width: 640px) {
     .basic-info-section :global(table td) {
       @apply p-2 text-sm;
