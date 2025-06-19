@@ -39,8 +39,7 @@ const outputData = [
   {
     id: 'paytner',
     title: 'ペイトナー テックブログ',
-    url: 'https://tech.paytner.co.jp/',
-    description: '開発生産性とマネジメントに関する記事',
+    url: 'https://paytner.hatenablog.com/archive/author/wakidas',
     articles: [
       { 
         title: 'チームの全体定例をやめてみた話', 
@@ -142,7 +141,9 @@ const outputData = [
           </a>
         </div>
         
-        <p class="platform-description">{platform.description}</p>
+        {platform.description && (
+          <p class="platform-description">{platform.description}</p>
+        )}
         
         {platform.stats && (
           <div class="platform-stats">{platform.stats}</div>
