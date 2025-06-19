@@ -6,7 +6,13 @@
       "mcp__playwright__browser_navigate",
       "mcp__playwright__browser_take_screenshot",
       "Bash(gh issue list:*)",
-      "Bash(git checkout:*)"
+      "Bash(git checkout:*)",
+      "Bash(gh pr merge:*)",
+      "WebFetch(domain:note.com)",
+      "WebFetch(domain:note.com)",
+      "WebFetch(domain:note.com)",
+      "WebFetch(domain:note.com)",
+      "WebFetch(domain:note.com)"
     ],
     "deny": []
   }
