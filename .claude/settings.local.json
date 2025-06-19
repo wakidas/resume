@@ -4,7 +4,9 @@
       "Bash(npm run build:*)",
       "Bash(git add:*)",
       "mcp__playwright__browser_navigate",
-      "mcp__playwright__browser_take_screenshot"
+      "mcp__playwright__browser_take_screenshot",
+      "Bash(gh issue list:*)",
+      "Bash(git checkout:*)"
     ],
     "deny": []
   }
