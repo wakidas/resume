@@ -1,4 +1,39 @@
 ---
+// ビルド時にOGP画像を取得する関数
+async function fetchOgpAtBuildTime(url) {
+  // 既知のOGP画像をハードコード（CORS回避のため）
+  const knownImages = {
+    'https://paytner.hatenablog.com/entry/2024/02/29/191400':
+      'https://pbs.twimg.com/card_img/1933842913198215168/6K37rpwc?format=jpg&name=medium',
+    'https://paytner.hatenablog.com/entry/developer-productivity-adcale-20231218':
+      'https://cdn.blog.st-hatena.com/images/theme/og-image-1500.png', // デフォルトを明示的に設定
+    'https://paytner.hatenablog.com/entry/em-adcale-20231223': 
+      'https://cdn-ak.f.st-hatena.com/images/fotolife/w/wakidas/20231125/20231125175617.png',
+    'https://paytner.hatenablog.com/entry/2023/12/21/194132':
+      'https://cdn.blog.st-hatena.com/images/theme/og-image-1500.png', // デフォルトを明示的に設定
+    'https://paytner.hatenablog.com/entry/developer-productivity-adcale-20221216':
+      'https://cdn-ak.f.st-hatena.com/images/fotolife/w/wakidas/20250620/20250620001428.png',
+    'https://paytner.hatenablog.com/entry/em-adcale-20221215':
+      'https://m.media-amazon.com/images/I/41kjaDTnOfL._SL500_.jpg',
+    'https://paytner.hatenablog.com/entry/2022/06/29/175422':
+      'https://cdn.blog.st-hatena.com/images/theme/og-image-1500.png' // デフォルトを明示的に設定
+  };
+  
+  // URLが既知のものであればその画像を返す
+  for (const [pattern, image] of Object.entries(knownImages)) {
+    if (url.includes(pattern)) {
+      return image;
+    }
+  }
+  
+  // その他のはてなブログ記事はデフォルトサムネイル
+  if (url.includes('paytner.hatenablog.com')) {
+    return 'https://cdn.blog.st-hatena.com/images/theme/og-image-1500.png';
+  }
+  
+  return null;
+}
+
 // アウトプットデータを構造化（動的サムネイル取得対応）
 const outputData = [
   {
@@ -10,39 +45,39 @@ const outputData = [
       { 
         title: 'チームの全体定例をやめてみた話', 
         url: 'https://paytner.hatenablog.com/entry/2024/02/29/191400',
-        thumbnail: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=200&fit=crop&auto=format'
+        thumbnail: await fetchOgpAtBuildTime('https://paytner.hatenablog.com/entry/2024/02/29/191400')
       },
       { 
         title: 'フィーチャーフラグ、レビュープレフィックス、そしてAIレビューまで', 
         url: 'https://paytner.hatenablog.com/entry/developer-productivity-adcale-20231218',
-        thumbnail: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=400&h=200&fit=crop&auto=format'
+        thumbnail: await fetchOgpAtBuildTime('https://paytner.hatenablog.com/entry/developer-productivity-adcale-20231218')
       },
       { 
         title: '目標設定によりチームに戦略マネジメントが生まれた', 
         url: 'https://paytner.hatenablog.com/entry/em-adcale-20231223',
-        thumbnail: 'https://cdn-ak.f.st-hatena.com/images/fotolife/w/wakidas/20231125/20231125175617.png'
+        thumbnail: await fetchOgpAtBuildTime('https://paytner.hatenablog.com/entry/em-adcale-20231223')
       },
       { 
         title: 'AIレビュー、実際使ってみてどうなん？', 
         url: 'https://paytner.hatenablog.com/entry/2023/12/21/194132',
-        thumbnail: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=200&fit=crop&auto=format'
+        thumbnail: await fetchOgpAtBuildTime('https://paytner.hatenablog.com/entry/2023/12/21/194132')
       },
       { 
         title: 'コード品質？レビュー効率？いや、PR数だ！！！', 
         url: 'https://paytner.hatenablog.com/entry/developer-productivity-adcale-20221216',
-        thumbnail: 'https://img.esa.io/uploads/production/attachments/16563/2022/12/15/126430/759bbd3a-1d36-418f-ac7b-4634e31f1ed5.png',
+        thumbnail: await fetchOgpAtBuildTime('https://paytner.hatenablog.com/entry/developer-productivity-adcale-20221216'),
         bookmarks: 179
       },
       { 
         title: 'マネジメントの型」がある会社にEMとして入社しました', 
         url: 'https://paytner.hatenablog.com/entry/em-adcale-20221215',
-        thumbnail: 'https://m.media-amazon.com/images/I/41kjaDTnOfL._SL500_.jpg',
+        thumbnail: await fetchOgpAtBuildTime('https://paytner.hatenablog.com/entry/em-adcale-20221215'),
         bookmarks: 40
       },
       { 
         title: '初心者3人でペアプロ始めたら、想像以上にメリットだらけだった', 
         url: 'https://paytner.hatenablog.com/entry/2022/06/29/175422',
-        thumbnail: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=200&fit=crop&auto=format',
+        thumbnail: await fetchOgpAtBuildTime('https://paytner.hatenablog.com/entry/2022/06/29/175422'),
         bookmarks: 33
       }
     ]
@@ -122,7 +157,12 @@ const outputData = [
               <div class="thumbnail-card">
                 <a href={article.url} target="_blank" rel="noopener noreferrer" class="thumbnail-link">
                   <div class="thumbnail-image">
-                    <img class="thumbnail-img" src={article.thumbnail} alt={article.title} loading="lazy" />
+                    <img 
+                      class="thumbnail-img" 
+                      src={article.thumbnail} 
+                      alt={article.title} 
+                      loading="lazy"
+                    />
                   </div>
                   <div class="thumbnail-content">
                     <h4 class="thumbnail-title">{article.title}</h4>
@@ -291,7 +331,7 @@ const outputData = [
 </style>
 
 <script>
-  // シンプルな初期化のみ
+  // カルーセル初期化
   document.addEventListener('DOMContentLoaded', function() {
     console.log('サムネイル付きカルーセル初期化完了');
   });
