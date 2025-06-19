@@ -176,6 +176,16 @@ const outputData = [
                 </a>
               </div>
             ))}
+            {(platform.id === 'qiita' || platform.id === 'paytner' || platform.id === 'personal-blog') && (
+              <div class="thumbnail-card more-card">
+                <a href={platform.url} target="_blank" rel="noopener noreferrer" class="thumbnail-link more-link">
+                  <div class="more-content">
+                    <span class="more-icon">✍️</span>
+                    <span class="more-text">more...</span>
+                  </div>
+                </a>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -326,6 +336,38 @@ const outputData = [
     .thumbnails-track {
       @apply gap-3;
     }
+  }
+
+  /* More card styles */
+  .more-card {
+    @apply flex items-center justify-center;
+    background: linear-gradient(135deg, 
+      rgba(16, 185, 129, 0.2) 0%,
+      rgba(34, 197, 94, 0.15) 50%,
+      rgba(16, 185, 129, 0.1) 100%);
+  }
+
+  .more-card:hover {
+    background: linear-gradient(135deg, 
+      rgba(16, 185, 129, 0.3) 0%,
+      rgba(34, 197, 94, 0.25) 50%,
+      rgba(16, 185, 129, 0.2) 100%);
+  }
+
+  .more-link {
+    @apply w-full h-full flex items-center justify-center;
+  }
+
+  .more-content {
+    @apply flex flex-col items-center gap-2 text-center;
+  }
+
+  .more-icon {
+    @apply text-4xl;
+  }
+
+  .more-text {
+    @apply text-lg font-semibold text-emerald-400;
   }
 </style>
 
