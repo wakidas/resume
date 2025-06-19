@@ -65,20 +65,17 @@ const outputData = [
       { 
         title: 'コード品質？レビュー効率？いや、PR数だ！！！', 
         url: 'https://paytner.hatenablog.com/entry/developer-productivity-adcale-20221216',
-        thumbnail: await fetchOgpAtBuildTime('https://paytner.hatenablog.com/entry/developer-productivity-adcale-20221216'),
-        bookmarks: 179
+        thumbnail: await fetchOgpAtBuildTime('https://paytner.hatenablog.com/entry/developer-productivity-adcale-20221216')
       },
       { 
         title: 'マネジメントの型」がある会社にEMとして入社しました', 
         url: 'https://paytner.hatenablog.com/entry/em-adcale-20221215',
-        thumbnail: await fetchOgpAtBuildTime('https://paytner.hatenablog.com/entry/em-adcale-20221215'),
-        bookmarks: 40
+        thumbnail: await fetchOgpAtBuildTime('https://paytner.hatenablog.com/entry/em-adcale-20221215')
       },
       { 
         title: '初心者3人でペアプロ始めたら、想像以上にメリットだらけだった', 
         url: 'https://paytner.hatenablog.com/entry/2022/06/29/175422',
-        thumbnail: await fetchOgpAtBuildTime('https://paytner.hatenablog.com/entry/2022/06/29/175422'),
-        bookmarks: 33
+        thumbnail: await fetchOgpAtBuildTime('https://paytner.hatenablog.com/entry/2022/06/29/175422')
       }
     ]
   },
@@ -166,9 +163,6 @@ const outputData = [
                   </div>
                   <div class="thumbnail-content">
                     <h4 class="thumbnail-title">{article.title}</h4>
-                    {article.bookmarks && (
-                      <span class="thumbnail-bookmarks">{article.bookmarks} ブクマ</span>
-                    )}
                   </div>
                 </a>
               </div>
@@ -294,10 +288,6 @@ const outputData = [
     -webkit-box-orient: vertical;
     overflow: hidden;
     margin: 0;
-  }
-
-  .thumbnail-bookmarks {
-    @apply text-xs text-amber-400 font-medium bg-amber-400/20 px-2 py-1 rounded-full;
   }
 
   /* レスポンシブ対応 */
