@@ -4,6 +4,9 @@ on:
   push:
     branches: [ main ]
   workflow_dispatch:
+  schedule:
+    # 毎月1日の9:00 JST (毎月1日の0:00 UTC)に実行
+    - cron: '0 0 1 * *'
 
 permissions:
   contents: read
