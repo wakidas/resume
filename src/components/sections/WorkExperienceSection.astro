@@ -49,4 +49,10 @@ const { Content } = await content.render();
   .work-experience-section :global(h3 + p) {
     @apply my-4;
   }
+
+  /* 期間：とプロジェクト規模：のラベルに上部マージンを追加 */
+  .work-experience-section :global(p > strong:first-child) {
+    margin-top: 1.25rem;
+    display: block;
+  }
 </style>
