@@ -42,17 +42,16 @@ const { Content } = await content.render();
   }
 
   .work-experience-section :global(p) {
-    @apply mb-1;
+    @apply mb-3 text-gray-300 leading-relaxed;
   }
   
-  /* 会社名直後の概要説明にマージンを追加 */
-  .work-experience-section :global(h3 + p) {
-    @apply my-4;
+  /* 会社概要説明の段落スタイル */
+  .work-experience-section :global(h3 ~ p:not(:has(strong))) {
+    @apply my-4 text-base;
   }
 
-  /* 期間：とプロジェクト規模：のラベルに上部マージンを追加 */
-  .work-experience-section :global(p > strong:first-child) {
-    margin-top: 1.25rem;
-    display: block;
+  /* リスト直前の最後の段落は下マージンを増やす */
+  .work-experience-section :global(p + ul) {
+    @apply mt-6;
   }
 </style>
