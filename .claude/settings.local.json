@@ -14,6 +14,7 @@
       "WebFetch(domain:note.com)",
       "WebFetch(domain:note.com)",
       "Bash(git commit:*)",
+      "WebFetch(domain:docs.anthropic.com)",
       "Bash(npm run dev:*)",
       "Bash(gh issue:*)"
     ],

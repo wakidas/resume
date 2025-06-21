@@ -11,6 +11,7 @@
     "build:pdf": "md-to-pdf src/content/resume/index.md --config-file ./pdf-configs/config.cjs"
   },
   "dependencies": {
+    "@astrojs/mdx": "^4.3.0",
     "astro": "^5.9.1",
     "link-preview-js": "^3.1.0"
   },
