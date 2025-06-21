@@ -3,11 +3,30 @@ import { getEntry } from 'astro:content';
 
 const content = await getEntry('resume', 'basic-info');
 const { Content } = await content.render();
+
+// Calculate age dynamically
+const birthDate = new Date(1991, 2, 9); // March 9, 1991 (month is 0-indexed)
+const today = new Date();
+let age = today.getFullYear() - birthDate.getFullYear();
+const monthDiff = today.getMonth() - birthDate.getMonth();
+if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+  age--;
+}
 ---
 
 <section class="basic-info-section">
   <Content />
 </section>
+
+<script define:vars={{ age }}>
+  // Find the birthday cell and append age
+  const cells = document.querySelectorAll('.basic-info-section td');
+  cells.forEach(cell => {
+    if (cell.textContent === '1991年3月9日') {
+      cell.textContent = `1991年3月9日（${age}歳）`;
+    }
+  });
+</script>
 
 <style>
   .basic-info-section :global(table) {

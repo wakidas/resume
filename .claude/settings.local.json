@@ -13,7 +13,8 @@
       "WebFetch(domain:note.com)",
       "WebFetch(domain:note.com)",
       "WebFetch(domain:note.com)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "WebFetch(domain:docs.anthropic.com)"
     ],
     "deny": []
   }
