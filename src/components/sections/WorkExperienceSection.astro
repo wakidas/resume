@@ -42,11 +42,21 @@ const { Content } = await content.render();
   }
 
   .work-experience-section :global(p) {
-    @apply mb-1;
+    @apply mt-3 text-gray-300 leading-relaxed;
   }
   
-  /* 会社名直後の概要説明にマージンを追加 */
-  .work-experience-section :global(h3 + p) {
-    @apply my-4;
+  /* 会社概要説明の段落スタイル */
+  .work-experience-section :global(h3 ~ p:not(:has(strong))) {
+    @apply my-4 text-base;
+  }
+
+  /* h4スタイル - 期間や担当プロジェクトの見出し */
+  .work-experience-section :global(h4) {
+    @apply text-lg font-bold mt-6 mb-3 text-emerald-400 border-l-4 border-emerald-500 pl-3;
+  }
+
+  /* リスト内のstrongは少し小さく、色を変える */
+  .work-experience-section :global(li strong) {
+    @apply text-base text-gray-100;
   }
 </style>
