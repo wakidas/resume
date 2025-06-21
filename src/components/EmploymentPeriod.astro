@@ -1,0 +1,29 @@
+---
+interface Props {
+  startDate: string; // Format: YYYY-MM
+}
+
+const { startDate } = Astro.props;
+
+// Parse the start date
+const [year, month] = startDate.split('-').map(Number);
+const start = new Date(year, month - 1);
+const today = new Date();
+
+// Calculate the difference
+let years = today.getFullYear() - start.getFullYear();
+let months = today.getMonth() - start.getMonth();
+
+if (months < 0) {
+  years--;
+  months += 12;
+}
+
+// Format the output
+const formattedStart = `${year}年${month}月`;
+const duration = years > 0 
+  ? `${years}年${months > 0 ? months + 'ヶ月' : ''}`
+  : `${months}ヶ月`;
+---
+
+<span>{formattedStart}〜現在（{duration.trim()}）</span>
