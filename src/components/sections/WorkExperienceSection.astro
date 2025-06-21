@@ -42,7 +42,7 @@ const { Content } = await content.render();
   }
 
   .work-experience-section :global(p) {
-    @apply mb-3 text-gray-300 leading-relaxed;
+    @apply mt-3 text-gray-300 leading-relaxed;
   }
   
   /* 会社概要説明の段落スタイル */
@@ -50,8 +50,13 @@ const { Content } = await content.render();
     @apply my-4 text-base;
   }
 
-  /* リスト直前の最後の段落は下マージンを増やす */
-  .work-experience-section :global(p + ul) {
-    @apply mt-6;
+  /* h4スタイル - 期間や担当プロジェクトの見出し */
+  .work-experience-section :global(h4) {
+    @apply text-lg font-bold mt-6 mb-3 text-emerald-400 border-l-4 border-emerald-500 pl-3;
+  }
+
+  /* リスト内のstrongは少し小さく、色を変える */
+  .work-experience-section :global(li strong) {
+    @apply text-base text-cyan-300;
   }
 </style>
