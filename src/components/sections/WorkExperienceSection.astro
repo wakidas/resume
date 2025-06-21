@@ -44,4 +44,9 @@ const { Content } = await content.render();
   .work-experience-section :global(p) {
     @apply mb-1;
   }
+  
+  /* 会社名直後の概要説明にマージンを追加 */
+  .work-experience-section :global(h3 + p) {
+    @apply my-4;
+  }
 </style>

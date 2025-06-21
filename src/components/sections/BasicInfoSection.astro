@@ -3,30 +3,11 @@ import { getEntry } from 'astro:content';
 
 const content = await getEntry('resume', 'basic-info');
 const { Content } = await content.render();
-
-// Calculate age dynamically
-const birthDate = new Date(1991, 2, 9); // March 9, 1991 (month is 0-indexed)
-const today = new Date();
-let age = today.getFullYear() - birthDate.getFullYear();
-const monthDiff = today.getMonth() - birthDate.getMonth();
-if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
-  age--;
-}
 ---
 
 <section class="basic-info-section">
   <Content />
 </section>
-
-<script define:vars={{ age }}>
-  // Find the birthday cell and append age
-  const cells = document.querySelectorAll('.basic-info-section td');
-  cells.forEach(cell => {
-    if (cell.textContent === '1991年3月9日') {
-      cell.textContent = `1991年3月9日（${age}歳）`;
-    }
-  });
-</script>
 
 <style>
   .basic-info-section :global(table) {
@@ -41,7 +22,7 @@ if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate()))
   }
 
   .basic-info-section :global(table td:first-child) {
-    @apply bg-gradient-to-r from-green-600/20 to-green-500/10 font-semibold w-32 text-gray-200;
+    @apply bg-gradient-to-r from-green-600/20 to-green-500/10 font-semibold w-36 text-gray-200;
   }
 
   .basic-info-section :global(table th) {
@@ -49,7 +30,7 @@ if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate()))
   }
 
   .basic-info-section :global(table th:first-child) {
-    @apply w-32;
+    @apply w-36;
   }
 
   .basic-info-section :global(table thead) {
