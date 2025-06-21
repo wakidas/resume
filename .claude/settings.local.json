@@ -16,7 +16,9 @@
       "Bash(git commit:*)",
       "WebFetch(domain:docs.anthropic.com)",
       "Bash(npm run dev:*)",
-      "Bash(gh issue:*)"
+      "Bash(gh issue:*)",
+      "Bash(git push:*)",
+      "Bash(gh pr create:*)"
     ],
     "deny": []
   }
