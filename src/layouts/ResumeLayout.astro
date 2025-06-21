@@ -17,6 +17,23 @@ import '../styles/global.css';
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
     
+    <!-- SEO/AIO/MLO Meta Tags -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description || "脇田慎平の職務経歴書。サーバーサイドエンジニアとしての経験とスキルをご紹介します。"} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://wakidas.github.io/resume/" />
+    <meta property="og:locale" content="ja_JP" />
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description || "脇田慎平の職務経歴書。サーバーサイドエンジニアとしての経験とスキルをご紹介します。"} />
+    
+    <!-- Additional SEO Tags -->
+    <meta name="author" content="脇田慎平" />
+    <meta name="keywords" content="脇田慎平,職務経歴書,エンジニア,サーバーサイド,バックエンド,Python,Go,AWS,GCP" />
+    <link rel="canonical" href="https://wakidas.github.io/resume/" />
+    
     <!-- Modern Typography Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

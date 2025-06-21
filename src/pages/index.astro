@@ -11,7 +11,7 @@ import PersonalSection from '../components/sections/PersonalSection.astro';
 const resume = await getEntry('resume', 'index');
 ---
 
-<ResumeLayout title={resume.data.title} description={resume.data.description}>
+<ResumeLayout title="職務経歴書 🛠 脇田慎平" description={resume.data.description}>
   <h1>職務経歴書</h1>
   
   <BasicInfoSection />
