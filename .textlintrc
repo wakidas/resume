@@ -1,4 +1,5 @@
 {
+  "plugins": ["mdx"],
   "rules": {
     "preset-ja-technical-writing": {
       "sentence-length": {
