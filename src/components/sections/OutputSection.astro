@@ -4,19 +4,19 @@ async function fetchOgpAtBuildTime(url) {
   // 既知のOGP画像をハードコード（CORS回避のため）
   const knownImages = {
     'https://paytner.hatenablog.com/entry/2024/02/29/191400':
-      'https://pbs.twimg.com/card_img/1933842913198215168/6K37rpwc?format=jpg&name=medium',
+      'https://ogimage.blog.st-hatena.com/13574176438097902192/6801883189085562391/1709402002',
     'https://paytner.hatenablog.com/entry/developer-productivity-adcale-20231218':
-      'https://cdn.blog.st-hatena.com/images/theme/og-image-1500.png', // デフォルトを明示的に設定
+      'https://ogimage.blog.st-hatena.com/13574176438097902192/6801883189061203762/1709402041',
     'https://paytner.hatenablog.com/entry/em-adcale-20231223': 
-      'https://cdn-ak.f.st-hatena.com/images/fotolife/w/wakidas/20231125/20231125175617.png',
+      'https://cdn.image.st-hatena.com/image/scale/f50345aaac41b55a1a239659f629fae874efc388/backend=imagemagick;version=1;width=1300/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fw%2Fwakidas%2F20231125%2F20231125175617.png',
     'https://paytner.hatenablog.com/entry/2023/12/21/194132':
-      'https://cdn.blog.st-hatena.com/images/theme/og-image-1500.png', // デフォルトを明示的に設定
+      'https://ogimage.blog.st-hatena.com/13574176438097902192/6801883189061328286/1709402029',
     'https://paytner.hatenablog.com/entry/developer-productivity-adcale-20221216':
-      'https://cdn-ak.f.st-hatena.com/images/fotolife/w/wakidas/20250620/20250620001428.png',
+      'https://cdn.image.st-hatena.com/image/scale/ba92024bc2d0e3b8dc3d22c8b7334c7807ee666e/backend=imagemagick;version=1;width=1300/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fw%2Fwakidas%2F20250620%2F20250620001428.png',
     'https://paytner.hatenablog.com/entry/em-adcale-20221215':
-      'https://m.media-amazon.com/images/I/41kjaDTnOfL._SL500_.jpg',
+      'https://cdn.image.st-hatena.com/image/scale/01f7ba6bafed816f45dd54844595d1987dc93860/backend=imagemagick;version=1;width=1300/https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F41kjaDTnOfL._SL500_.jpg',
     'https://paytner.hatenablog.com/entry/2022/06/29/175422':
-      'https://cdn.blog.st-hatena.com/images/theme/og-image-1500.png' // デフォルトを明示的に設定
+      'https://ogimage.blog.st-hatena.com/13574176438097902192/4207112889892815913/1709402106'
   };
   
   // URLが既知のものであればその画像を返す
@@ -87,27 +87,27 @@ const outputData = [
       { 
         title: 'EMConf JP 2025 参加レポ', 
         url: 'https://note.com/wakidas/n/n1a70da47add7',
-        thumbnail: 'https://pbs.twimg.com/card_img/1935680090509344768/O3r2PgBP?format=jpg&name=medium'
+        thumbnail: 'https://d2l930y2yx77uc.cloudfront.net/production/social_images/396c0151c03ed9e3d5d82365b967d489384191bf.png'
       },
       { 
         title: '内発的動機づけを育む ~ 『教育心理学概論』より ~', 
         url: 'https://note.com/wakidas/n/n245800b91692',
-        thumbnail: 'https://pbs.twimg.com/card_img/1933627490326704128/tITWKAwI?format=jpg&name=medium'
+        thumbnail: 'https://d2l930y2yx77uc.cloudfront.net/production/social_images/b99d673d7eab160ff10c80b43e25dae27c4b67a4.png'
       },
       { 
         title: '2024年読書まとめ', 
         url: 'https://note.com/wakidas/n/ned980a755274',
-        thumbnail: 'https://pbs.twimg.com/card_img/1933627490855157760/Ik5a0PIA?format=jpg&name=medium'
+        thumbnail: 'https://d2l930y2yx77uc.cloudfront.net/production/social_images/145d95901795f126cd39942015829404eef0a731.png'
       },
       { 
         title: '『死ぬ時に後悔すること25』読んだ', 
         url: 'https://note.com/wakidas/n/nfaa81cc90901',
-        thumbnail: 'https://pbs.twimg.com/card_img/1933627498295930883/oa6FSg-B?format=jpg&name=900x900'
+        thumbnail: 'https://d2l930y2yx77uc.cloudfront.net/production/social_images/6647fee9bc6470ff34ebb758f8a07fcf085d6a9e.png'
       },
       { 
         title: '育成のカギは「教える」ではなく「真似してもらう」', 
         url: 'https://note.com/wakidas/n/n36108d011330',
-        thumbnail: 'https://pbs.twimg.com/card_img/1935739805952098304/Q-0oKXUq?format=jpg&name=medium'
+        thumbnail: 'https://d2l930y2yx77uc.cloudfront.net/production/social_images/fd61f470a1c18b8db2e8f8cf5b05b6243e73f663.png'
       }
     ]
   },
@@ -119,17 +119,17 @@ const outputData = [
       { 
         title: '【Laravel テスト】フォームリクエスト 複数項目バリデーションのテストコード', 
         url: 'https://qiita.com/kiwatchi1991/items/fd0e9cfae0e1bdcf1121',
-        thumbnail: 'https://pbs.twimg.com/card_img/1935744152534499328/LVSXCDwS?format=jpg&name=medium'
+        thumbnail: 'https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGNDA3Mzc4JTJGcHJvZmlsZS1pbWFnZXMlMkYxNzExODcyMjk3P2l4bGliPXJiLTQuMC4wJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZmbT1wbmczMiZzPWQ4ZjM2NGZhMDJlYmViMjQwMjE3NGQxYmY1YmZjN2Zl%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Df58e7e7d05abb43e5fb80c84ff556aa3?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgwJTkwTGFyYXZlbCUyMCVFMyU4MyU4NiVFMyU4MiVCOSVFMyU4MyU4OCVFMyU4MCU5MSVFMyU4MyU5NSVFMyU4MiVBOSVFMyU4MyVCQyVFMyU4MyVBMCVFMyU4MyVBQSVFMyU4MiVBRiVFMyU4MiVBOCVFMyU4MiVCOSVFMyU4MyU4OCUyMCVFOCVBNCU4NyVFNiU5NSVCMCVFOSVBMCU4NSVFNyU5QiVBRSVFMyU4MyU5MCVFMyU4MyVBQSVFMyU4MyU4NyVFMyU4MyVCQyVFMyU4MiVCNyVFMyU4MyVBNyVFMyU4MyVCMyVFMyU4MSVBRSVFMyU4MyU4NiVFMyU4MiVCOSVFMyU4MyU4OCVFMyU4MiVCMyVFMyU4MyVCQyVFMyU4MyU4OSVFMyU4MiU5MiVFNiU5QiVCOCVFMyU4MSU4NCVFMyU4MSVBNiVFMyU4MSVCRiVFMyU4MSU5RiZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPWZmZmMxMTY5MGE2OGJjOTgwZGFkZDdkNmI1NzY0ZmYx&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBzaGltcGVlZV8mdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz05ZDQ0YmYwYzg0MzlkMzA2M2NhYWEwZjBmNGI2NjcwNg&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=5926d52084212fd303fa7e1a7d53ca27'
       },
       { 
         title: '【5分でざっくり理解！】Laravelでクリーンアーキテクチャ超入門', 
         url: 'https://qiita.com/kiwatchi1991/items/cd3be76d70f6dfb1f366',
-        thumbnail: '/resume/images/qiita/laravel-clean-architecture.png'
+        thumbnail: 'https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGNDA3Mzc4JTJGcHJvZmlsZS1pbWFnZXMlMkYxNzExODcyMjk3P2l4bGliPXJiLTQuMC4wJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZmbT1wbmczMiZzPWQ4ZjM2NGZhMDJlYmViMjQwMjE3NGQxYmY1YmZjN2Zl%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Df58e7e7d05abb43e5fb80c84ff556aa3?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgwJTkwNSVFNSU4OCU4NiVFMyU4MSVBNyVFMyU4MSU5NiVFMyU4MSVBMyVFMyU4MSU4RiVFMyU4MiU4QSVFNyU5MCU4NiVFOCVBNyVBMyVFRiVCQyU4MSVFMyU4MCU5MUxhcmF2ZWwlRTMlODElQTclRTMlODIlQUYlRTMlODMlQUElRTMlODMlQkMlRTMlODMlQjMlRTMlODIlQTIlRTMlODMlQkMlRTMlODIlQUQlRTMlODMlODYlRTMlODIlQUYlRTMlODMlODElRTMlODMlQTMlRTglQjYlODUlRTUlODUlQTUlRTklOTYlODAmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz1iMmE3NDNiZGU3YzE2ZDM1NWUwNjVlMzIxZDJlNDMyNQ&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBzaGltcGVlZV8mdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz05ZDQ0YmYwYzg0MzlkMzA2M2NhYWEwZjBmNGI2NjcwNg&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=73766e51a37ef41625ed369b4fc6fca5'
       },
       { 
         title: '【VSCode】ES6記法スニペットのEmmet展開方法まとめ', 
         url: 'https://qiita.com/kiwatchi1991/items/75f337628b3cbd9a4e32',
-        thumbnail: 'https://pbs.twimg.com/card_img/1935744982012641280/H2q1v24l?format=jpg&name=medium'
+        thumbnail: 'https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGNDA3Mzc4JTJGcHJvZmlsZS1pbWFnZXMlMkYxNzExODcyMjk3P2l4bGliPXJiLTQuMC4wJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZmbT1wbmczMiZzPWQ4ZjM2NGZhMDJlYmViMjQwMjE3NGQxYmY1YmZjN2Zl%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Df58e7e7d05abb43e5fb80c84ff556aa3?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgwJTkwVlNDb2RlJUUzJTgwJTkxRVM2JUU4JUE4JTk4JUU2JUIzJTk1JUUzJTgyJUI5JUUzJTgzJThCJUUzJTgzJTlBJUUzJTgzJTgzJUUzJTgzJTg4JUUzJTgxJUFFRW1tZXQlRTUlQjElOTUlRTklOTYlOEIlRTYlOTYlQjklRTYlQjMlOTUlRTMlODElQkUlRTMlODElQTglRTMlODIlODEmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz1hNmE5NjVlNmViMjg0ODBlNmY5YjBiMTVkMzE5ZjAyMw&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBzaGltcGVlZV8mdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz05ZDQ0YmYwYzg0MzlkMzA2M2NhYWEwZjBmNGI2NjcwNg&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=e74a5b6170811c21cb6827fb1d1a8804'
       }
     ]
   }
