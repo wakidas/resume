@@ -15,7 +15,7 @@ h2 {
 
 h2 .anchor-link {
   position: absolute;
-  left: -1.5rem;
+  left: -2.5rem;
   top: 50%;
   transform: translateY(-50%);
   opacity: 0;
@@ -39,7 +39,7 @@ h2 .anchor-link:hover {
 @media (max-width: 768px) {
   h2 .anchor-link {
     opacity: 0.5;
-    left: -1.2rem;
+    left: -2rem;
     font-size: 1rem;
   }
 }
