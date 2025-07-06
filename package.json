@@ -7,7 +7,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "lint": "textlint src/content/resume/index.md",
+    "lint": "textlint 'src/content/resume/**/*.{md,mdx}'",
     "build:pdf": "md-to-pdf src/content/resume/index.md --config-file ./pdf-configs/config.cjs"
   },
   "dependencies": {
@@ -25,6 +25,7 @@
     "textlint": "^11.6.3",
     "textlint-filter-rule-comments": "^1.2.2",
     "textlint-filter-rule-whitelist": "^2.0.0",
+    "textlint-plugin-mdx": "^1.0.2",
     "textlint-rule-abbr-within-parentheses": "^1.0.2",
     "textlint-rule-footnote-order": "^1.0.3",
     "textlint-rule-general-novel-style-ja": "^1.3.0",

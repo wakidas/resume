@@ -6461,6 +6461,11 @@ textlint-filter-rule-whitelist@^2.0.0:
     "@textlint/regexp-string-matcher" "^1.0.2"
     rc-config-loader "^2.0.1"
 
+textlint-plugin-mdx@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.npmjs.org/textlint-plugin-mdx/-/textlint-plugin-mdx-1.0.2.tgz"
+  integrity sha512-La+pgFdhw78F93PKm/c8IYipZPUMOxuwSVX9ZcVMT9Q9f3xF7N5rU37dotVjn+D8kmN0AJaxm0qtT5nEEP51mA==
+
 textlint-rule-abbr-within-parentheses@^1.0.2:
   version "1.0.2"
   resolved "https://registry.npmjs.org/textlint-rule-abbr-within-parentheses/-/textlint-rule-abbr-within-parentheses-1.0.2.tgz"
