@@ -198,5 +198,66 @@ import '../styles/global.css';
         }
       }
     </style>
+    
+    <script>
+      // 見出しと英語IDのマッピング
+      const headingMap = {
+        '基本情報': 'basic-info',
+        '職務経歴': 'work-experience',
+        '志望動機': 'motivation',
+        '自己PR': 'self-pr',
+        'アウトプット': 'output',
+        '個人情報': 'personal'
+      };
+
+      // DOMContentLoadedイベントでアンカーリンクを設定
+      document.addEventListener('DOMContentLoaded', function() {
+        // すべてのh2要素を取得
+        const headings = document.querySelectorAll('h2');
+        
+        headings.forEach((heading) => {
+          const headingText = heading.textContent.trim();
+          const id = headingMap[headingText];
+          
+          if (id) {
+            // IDを設定
+            heading.id = id;
+            
+            // アンカーリンクを作成
+            const anchor = document.createElement('a');
+            anchor.href = `#${id}`;
+            anchor.className = 'anchor-link';
+            anchor.innerHTML = '🔗';
+            anchor.setAttribute('aria-label', `${headingText}へのリンク`);
+            
+            // クリックイベントを追加
+            anchor.addEventListener('click', function(e) {
+              e.preventDefault();
+              
+              // URLを更新
+              history.pushState(null, null, `#${id}`);
+              
+              // スムーズスクロール
+              heading.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+            
+            // 見出しの先頭に追加
+            heading.insertBefore(anchor, heading.firstChild);
+          }
+        });
+        
+        // ページ読み込み時にハッシュがある場合の処理
+        if (window.location.hash) {
+          const targetId = window.location.hash.slice(1);
+          const targetElement = document.getElementById(targetId);
+          
+          if (targetElement) {
+            setTimeout(() => {
+              targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+          }
+        }
+      });
+    </script>
   </body>
 </html>
