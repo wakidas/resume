@@ -1,47 +1,70 @@
-# Astro Starter Kit: Minimal
+# Resume Website
 
-```sh
-npm create astro@latest -- --template minimal
-```
+**🌐 Live Site: [https://wakidas.github.io/resume](https://wakidas.github.io/resume)**
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+職務経歴書のWebサイト版です。Markdown形式で管理された履歴書データを、Astro SSGを使ってリッチなUIで表示します。
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🚀 For External Users
 
-## 🚀 Project Structure
+このリポジトリは履歴書サイトのソースコードです。実際の履歴書は以下のURLでご覧いただけます：
 
-Inside of your Astro project, you'll see the following folders and files:
+**➡️ [https://wakidas.github.io/resume](https://wakidas.github.io/resume)**
+
+## 🛠️ For Developers
+
+### プロジェクト概要
+- **目的**: MarkdownからAstro SSGへの移行でリッチなUIを実現
+- **技術スタック**: Astro v5.9.1 + Tailwind CSS + Content Collections
+- **デプロイ**: GitHub Pages (自動デプロイ)
+
+### プロジェクト構造
 
 ```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+src/
+├── content/
+│   └── resume/
+│       └── index.md          # メインの履歴書コンテンツ
+├── layouts/
+│   └── ResumeLayout.astro    # レイアウトコンポーネント
+├── pages/
+│   └── index.astro           # トップページ
+└── styles/
+    └── global.css            # Tailwind CSS読み込み
+
+public/
+└── strengthsfinder.pdf       # 添付資料
+
+pdf-configs/
+├── config.cjs                # PDF生成設定
+└── style.css                 # PDF用スタイル
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+### 開発コマンド
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+| Command              | Action                                |
+| :------------------- | :------------------------------------ |
+| `npm install`        | 依存関係をインストール                |
+| `npm run dev`        | ローカル開発サーバー起動 (localhost:4321) |
+| `npm run build`      | 本番用ビルド                          |
+| `npm run preview`    | ビルドしたサイトのプレビュー          |
+| `npm run lint`       | textlintによる文章校正                |
+| `npm run build:pdf`  | PDF生成                               |
 
-Any static assets, like images, can be placed in the `public/` directory.
+### 開発フロー
 
-## 🧞 Commands
+1. **ブランチ作成**: `git checkout -b feature/[機能名]`
+2. **開発**: 変更を実装
+3. **ビルド確認**: `npm run build`で動作確認
+4. **コミット・プッシュ**: 変更をコミット・プッシュ
+5. **PR作成**: Pull Request作成してレビュー
 
-All commands are run from the root of the project, from a terminal:
+### 重要なルール
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+- **mainブランチへの直接コミット禁止**
+- **すべての変更はfeatureブランチ経由**
+- **ビルド成功が必須条件**
+- **自動デプロイ**: mainブランチへのマージで自動デプロイ
 
-## 👀 Want to learn more?
+### 詳細な開発ガイド
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+プロジェクトの詳細な設定やルールについては、[CLAUDE.md](./CLAUDE.md)を参照してください。
